@@ -1,0 +1,50 @@
+body {
+  padding: 64px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+
+  /* transition-property: transform; */
+  /* transitionする時間
+  transition-duration: .3s; */
+  /* transitionまでの時間
+  transition-delay: 1s; */
+  /* transform-origin: top left; 起点 */
+  /* transition-timing-function: ease-out; */
+  /* transition: transform .3s ease-out; 一括指定*/
+
+  /* animation-name: move; */
+  /* animation-duration: 1s; */
+  /* 最後の状態を保つ
+  animation-fill-mode: forwards; */
+  /* 何回繰り返すか
+  animation-iteration-count: infinite; */
+  /* 折り返す
+  animation-direction: alternate;
+  animation-direction: alternate-reverse; */
+  animation: move 2s infinite;
+}
+
+.box:hover {
+  /* transform: translate(50px, 20px); 移動*/
+  /* transform: rotate(30deg); 回転*/
+  /* transform: scale(0.5, 2);大きさ */
+
+  /* transform: translateX(100px) rotate(30deg); */
+  /* transform: rotate(30deg) translateX(100px); */
+}
+
+@keyframes move {
+  0% {
+    transform: none;
+  }
+  80% {
+    transform: translateX(200px) rotate(360deg);
+  }
+  100% {
+    transform: translateX(300px) rotate(360deg);
+  }
+}
