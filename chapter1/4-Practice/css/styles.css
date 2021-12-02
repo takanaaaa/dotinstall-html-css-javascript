@@ -1,0 +1,88 @@
+/* common */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  /* 要素と子孫要素の下端を行全体の下端に揃える */
+  vertical-align: bottom;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+/* header */
+header {
+  background: #efefef;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  padding: 32px 0;
+}
+
+header .container div + div {
+  margin-left: 32px;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header ul li + li {
+  margin-left: 8px;
+}
+
+header .icon {
+  border-radius: 50%;
+}
+
+/* main */
+
+main h1 {
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  padding: 60px 0;
+}
+
+main h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 16px;
+}
+main p {
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+main section + section {
+  margin-bottom: 60px;
+}
+
+/* footer */
+
+footer {
+  padding: 60px 0;
+  text-align: center;
+  color: #aaa;
+}
