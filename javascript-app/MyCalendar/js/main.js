@@ -3,8 +3,9 @@
 console.clear();
 
 {
-  let year = 2020;
-  let month = 4; //5月
+  const today = new Date();
+  let year = today.getFullYear();
+  let month = today.getMonth();
 
   function getCalendarHead() {
     const dates = [];
@@ -32,6 +33,10 @@ console.clear();
         isToday: false,
         isDisabled: false,
       });
+    }
+    // 今日の日付をtrueに更新
+    if (year === today.getFullYear() && month === today.getMonth()) {
+      dates[today.getDate() -1].isToday = true;
     }
 
     return dates;
@@ -123,6 +128,13 @@ console.clear();
       year++;
       month = 0;
     }
+
+    createCalendar();
+  });
+
+  document.getElementById('today').addEventListener('click', () => {
+    year = today.getFullYear();
+    month = today.getMonth();
 
     createCalendar();
   });
