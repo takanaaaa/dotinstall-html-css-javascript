@@ -4,15 +4,17 @@
   const question = document.getElementById('question');
   const choices = document.getElementById('choices');
   const btn = document.getElementById('btn');
+  const result = document.getElementById('result');
+  const scoreLabel = document.querySelector('#result > p')
 
-
-  const quizSet = [
-    {q: 'What is A?', c: ['A0', 'A1', 'A2']},
-    {q: 'What is B?', c: ['B0', 'B1', 'B2']},
-    {q: 'What is C?', c: ['C0', 'C1', 'C2']},
-  ];
+  const quizSet = shuffle([
+    {q: '世界で一番大きな湖は？', c: ['カスピ海', 'カリブ海', '琵琶湖']},
+    {q: '2の8乗は？', c: ['256', '64', '1024']},
+    {q: '次のうち、最初にリリースされた言語は？', c: ['Python', 'JavaScript', 'HTML']},
+  ]);
   let currentNum = 0; // 0のクイズから開始
   let isAnswered;
+  let score = 0;
 
   function shuffle(arr) {
     // i = 最後の要素
@@ -30,6 +32,7 @@
     isAnswered =true;
 
     if(li.textContent === quizSet[currentNum].c[0]) {
+      score++;
       li.classList.add('correct');
     } else {
       li.classList.add('wrong');
@@ -68,7 +71,13 @@
       return;
     }
     btn.classList.add('disabled');
-    currentNum++;
-    setQuiz();
+
+    if (currentNum == quizSet.length - 1) {
+      scoreLabel.textContent = `Score: ${score} / ${quizSet.length}`
+      result.classList.remove('hidden');
+    } else {
+      currentNum++;
+      setQuiz();
+    };
   });
 }
